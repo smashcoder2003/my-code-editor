@@ -1,0 +1,141 @@
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
+
+.home {
+    background: rgb(45, 45, 45);
+    background-size: cover;
+    height: 100svh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+/* NavBar classes */
+.NavBarComponent {
+    @apply flex m-1  mt-0.5 text-gray-400 hover:text-blue-600 hover:cursor-pointer justify-center items-center p-2 rounded font-mono;
+}
+
+/* CodeGround classes */
+.codeGroundComponent {
+    @apply flex flex-row gap-x-1 m-1 overflow-y-auto;
+    height: 100%;
+    width: auto;
+}
+
+/* QuestionFrame classes */
+.questionFrame {
+    @apply flex flex-col border border-gray-700 rounded;
+    width: 50%;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: clip;
+    background: rgb(40, 40, 40);
+    color: rgba(245, 245, 245, 0.7);
+    resize: horizontal;
+    min-width: min-content;
+}
+
+.questionFrameMenu {
+    @apply sticky top-0 flex flex-row space-x-5 items-center border-b-2 border-b-gray-700;
+    height: min-content;
+    background: rgb(40, 40, 40);
+}
+
+.questionFrameMenuItem {
+    @apply hover:bg-indigo-500 p-2 hover:cursor-pointer;
+    height:100%;
+}
+
+.questionFrameContent {
+    @apply flex flex-col m-2;
+}
+
+/* QuestionHeader, Question Description, testcases */
+.questionHeader {
+    @apply text-2xl text-center;
+}
+
+.questionDescription {
+    @apply mt-2;
+    line-height: 2.3;
+}
+
+.questionDescription span {
+    @apply font-mono p-1.5 rounded border border-gray-600;
+}
+
+.testCases {
+    @apply flex flex-col gap-y-1.5 font-bold text-orange-300 m-1;
+}
+
+.testCases {
+    @apply font-mono p-1.5 rounded border border-gray-600 ml-2;
+}
+
+/* Test classes moved after testCases */
+.test {
+    @apply flex flex-col text-white p-2 rounded border-4 border-gray-700;
+    line-height: 2rem;
+}
+
+.test p {
+    @apply m-2 p-0.5;
+}
+
+.constraints {
+    @apply m-1;
+}
+
+/* QuestionEditor classes */
+.questionEditor {
+    @apply flex flex-col text-white border border-gray-700 rounded;
+    width: 100%;
+    height: 60%;
+    min-height: min-content;
+    overflow: hidden;
+}
+
+.questionEditorMenu {
+    @apply sticky flex flex-row gap-x-1.5 items-center border-b-2 border-b-gray-700 rounded-t;
+    background: rgb(40, 40, 40);
+}
+
+/* Remaining classes */
+.questionEditorMenuItem {
+    @apply flex hover:bg-indigo-500 p-2 hover:cursor-pointer;
+    color: rgba(245, 245, 245, 0.7);
+}
+
+.userEditor {
+    @apply flex flex-col;
+    width: 50%;
+    flex: 2;
+    height: 100%;
+}
+
+.testEditor {
+    @apply flex flex-col text-white border border-gray-700 mt-2 rounded;
+    width: 100%;
+    flex: 2;
+    min-height: 30%;
+    max-height: 100%;
+}
+
+.testEditorMenu {
+    @apply sticky flex flex-row items-center border-b-2 border-b-gray-700 justify-center rounded-t;
+    background: rgb(40, 40, 40);
+}
+
+.testEditorMenuItem {
+    @apply flex;
+}
+
+
+.testCaseWindow {
+    @apply flex flex-col mt-1 p-1 overflow-y-auto;
+}
+
+
+.testCaseSubWindow {
+    @apply flex flex-row border border-gray-700 rounded p-1;
+}

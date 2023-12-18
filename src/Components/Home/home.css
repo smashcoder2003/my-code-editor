@@ -1,0 +1,194 @@
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
+
+
+.courseCard {
+    @apply flex flex-col rounded w-20 sm:w-48 md:w-52 lg:w-56 h-[90%] m-6;
+    background: rgb(45, 45, 45, 0.8);
+    flex-shrink: 0;
+    transition: transform 0.2s ease; /* Add transition property */
+    overflow-y: clip;
+}
+
+.courseCard:hover {
+    @apply rounded-none cursor-pointer;
+    transform: scale(1.05); /* Apply 3D effect on hover */
+}
+
+
+.courseImg  {
+    @apply flex bg-white rounded-t;
+    overflow: hidden;
+    height: 40%;
+    width: 100%;
+}
+
+
+.courseImg img {
+    width: 100%;
+}
+
+.courseTitle {
+    @apply flex justify-center font-extrabold text-2xl mt-2;
+    font-family:  Helvetica Neue sans-serif;
+    width: 100%;
+    color: rgb(160, 160, 160);
+}
+
+.courseContent {
+    display: flex;
+    flex-direction: column;
+    margin: 4px 4px 4px 10px;
+}
+
+.courseDescription {
+    @apply flex text-gray-500;
+}
+
+.courseCardWindow {
+    @apply flex flex-row items-center gap-x-4 pe-4;
+    overflow-x: auto;
+    overflow-y: clip;
+}
+
+.courseWindowTitle {
+    @apply text-4xl flex justify-center;
+    color: rgb(240, 240, 240, 0.8);
+    padding: 10px 10px 0;
+}
+
+.courseWindow {
+    display: flex;
+    flex-direction: column;
+    background: rgb(30, 30, 30);
+    height: 100%;
+    width: 90%;
+    overflow-y: clip;
+}
+
+.leftArrow {
+    @apply flex;
+    height: 20%;
+    width: 6%;
+}
+
+.rightArrow {
+    @apply flex;
+    height: 20%;
+    width: 6%;
+}
+
+.leftArrow:hover {
+    cursor: pointer;
+}
+
+.rightArrow:hover {
+    cursor: pointer;
+}
+
+.carouselWindow {
+    @apply flex flex-row items-center justify-center sm:h-[25rem] md:h-[27rem];
+    /*height: 25rem;*/
+    background: rgb(30, 30, 30);
+}
+
+.contentWindow {
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    background: rgb(35, 35, 35);
+}
+
+.appBar {
+    @apply flex text-gray-500 p-2 gap-x-1.5;
+    height: 10%;
+    width: 100%;
+    font-size: 26px;
+    align-items: center;
+    border-color: white;
+    border-bottom: solid 0.01rem;
+    flex-shrink: 0;
+}
+.appBar p {
+    margin-left: 3.5rem;
+}
+
+.problemStatementWindow {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.statementsWindow {
+    width: 80%;
+    height: inherit;
+    background: rgb(30, 30, 30);
+    overflow-y: auto;
+    overflow-x: clip;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    row-gap: 1rem;
+}
+
+.filtersWindow {
+    height: 100%;
+    min-width: 20%;
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: rgb(45, 45 ,45);
+}
+
+.problemStatementCard {
+    width: 60%;
+    border: 1px solid rgb(10, 10, 10);
+    color: rgb(107, 114, 128);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    background: rgb(30, 35, 40, 0.3);
+    cursor: pointer;
+}
+
+.problemStatementCard:hover  .statementCardHeader {
+    @apply text-emerald-700;
+}
+.statementCardHeader {
+    @apply font-mono font-bold;
+    font-size: 18px;
+}
+
+.statementTags {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+    font-family: "Apple Braille", "Andale Mono", serif;
+}
+
+.statementTags span {
+    padding: 0.25rem;
+    border: solid rgb(78, 114, 128, 0.5) 1px;
+}
+
+.tagsWindow {
+    display: flex;
+    flex-direction: row;
+    height: min-content;
+}
+
+.statementCardButton {
+    @apply hover:bg-indigo-600 hover:text-white font-mono border border-gray-500 hover:border-none;
+    margin-left: auto;
+    padding: 0.5rem;
+    height: min-content;
+    min-width: min-content;
+    margin-top: auto;
+    text-align: center;
+}
