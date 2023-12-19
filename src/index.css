@@ -3,7 +3,7 @@
 @tailwind base;
 
 .home {
-    background: rgb(45, 45, 45);
+    background: rgb(26, 26, 26);
     background-size: cover;
     height: 100svh;
     width: auto;
@@ -17,20 +17,19 @@
 
 /* CodeGround classes */
 .codeGroundComponent {
-    @apply flex flex-row gap-x-1 m-1 overflow-y-auto;
+    @apply flex flex-col md:flex-row gap-x-1 overflow-y-auto m-2 gap-y-1.5;
     height: 100%;
     width: auto;
 }
 
 /* QuestionFrame classes */
 .questionFrame {
-    @apply flex flex-col border border-gray-700 rounded;
-    width: 50%;
+    @apply flex flex-col border border-gray-700 rounded w-[100%] md:w-[50%];
     max-height: 100%;
     overflow-y: auto;
     overflow-x: clip;
-    background: rgb(40, 40, 40);
-    color: rgba(245, 245, 245, 0.7);
+    background: rgb(35, 35, 35  );
+    color: rgba(245, 245, 245, 0.8);
     resize: horizontal;
     min-width: min-content;
 }
@@ -65,11 +64,7 @@
 }
 
 .testCases {
-    @apply flex flex-col gap-y-1.5 font-bold text-orange-300 m-1;
-}
-
-.testCases {
-    @apply font-mono p-1.5 rounded border border-gray-600 ml-2;
+    @apply flex flex-col gap-y-1.5 font-bold text-orange-300 m-1 font-mono p-1.5 rounded ml-2;
 }
 
 /* Test classes moved after testCases */
@@ -104,11 +99,14 @@
 .questionEditorMenuItem {
     @apply flex hover:bg-indigo-500 p-2 hover:cursor-pointer;
     color: rgba(245, 245, 245, 0.7);
+    height: 100%;
+    text-align: center;
+    align-items: center;
+
 }
 
 .userEditor {
-    @apply flex flex-col;
-    width: 50%;
+    @apply flex flex-col w-[100%] md:w-[50%];
     flex: 2;
     height: 100%;
 }

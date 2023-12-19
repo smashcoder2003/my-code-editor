@@ -12,20 +12,21 @@
 }
 
 .courseCard:hover {
-    @apply rounded-none cursor-pointer;
+    @apply rounded cursor-pointer;
     transform: scale(1.05); /* Apply 3D effect on hover */
+
 }
 
 
 .courseImg  {
-    @apply flex bg-white rounded-t;
+    @apply flex rounded-t h-[40%] sm:h-[40%];
     overflow: hidden;
-    height: 40%;
     width: 100%;
 }
 
 
 .courseImg img {
+    height: 100%;
     width: 100%;
 }
 
@@ -44,6 +45,7 @@
 
 .courseDescription {
     @apply flex text-gray-500;
+    height: 100%;
 }
 
 .courseCardWindow {
@@ -88,7 +90,7 @@
 }
 
 .carouselWindow {
-    @apply flex flex-row items-center justify-center sm:h-[25rem] md:h-[27rem];
+    @apply flex flex-row items-center justify-center  sm:h-[29rem] md:h-[29rem] lg:h-[26rem];
     /*height: 25rem;*/
     background: rgb(30, 30, 30);
 }

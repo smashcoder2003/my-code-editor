@@ -1,56 +1,35 @@
 import CourseCard from './CourseCard/CourseCard';
 import CourseWindow from "./CourseWindow/CourseWindow";
 import CarouselWindow from "./Carousel/CarouselWindow/CarouselWindow";
-import useSWR from 'swr';
 import './home.css';
-
+import useSWR from "swr";
 
 export default function Home() {
-   // const { data, error, isLoading} =  useSWR('http://localhost:2000/api/courses', fetch)
+   const fetcher = (...args) => fetch(...args).then((res)  => res.json());
+   const { data , error , isLoading } = useSWR('http://192.168.1.131:4000/courses', fetcher);
+   if (isLoading)
+      return( <div>Loading...</div> );
 
-   return (
-      <>
-         <CarouselWindow>
-            <CourseWindow title="My Courses">
-               <div className="courseCardWindow">
-                  <CourseCard
-                     img="https://www.shutterstock.com/image-vector/os-operating-system-software-computer-260nw-430441498.jpg"
-                     title="Operating Systems"
-                     description="Intro to Operating Systems: Basics of OS concepts, processes, memory, and file systems. Ideal for beginners."
-                  />
-                  <CourseCard
-                     img="https://www.shutterstock.com/image-vector/os-operating-system-software-computer-260nw-430441498.jpg"
-                     title="Operating Systems"
-                     description="Intro to Operating Systems: Basics of OS concepts, processes, memory, and file systems. Ideal for beginners."
-                  />
-                  <CourseCard
-                     img="https://www.shutterstock.com/image-vector/os-operating-system-software-computer-260nw-430441498.jpg"
-                     title="Operating Systems"
-                     description="Intro to Operating Systems: Basics of OS concepts, processes, memory, and file systems. Ideal for beginners."
-                  />
-                  <CourseCard
-                     img="https://www.shutterstock.com/image-vector/os-operating-system-software-computer-260nw-430441498.jpg"
-                     title="Operating Systems"
-                     description="Intro to Operating Systems: Basics of OS concepts, processes, memory, and file systems. Ideal for beginners."
-                  />
-                  <CourseCard
-                     img="https://www.shutterstock.com/image-vector/os-operating-system-software-computer-260nw-430441498.jpg"
-                     title="Operating Systems"
-                     description="Intro to Operating Systems: Basics of OS concepts, processes, memory, and file systems. Ideal for beginners."
-                  />
-                  <CourseCard
-                     img="https://www.shutterstock.com/image-vector/os-operating-system-software-computer-260nw-430441498.jpg"
-                     title="Operating Systems"
-                     description="Intro to Operating Systems: Basics of OS concepts, processes, memory, and file systems. Ideal for beginners."
-                  />
-                  <CourseCard
-                     img="https://www.shutterstock.com/image-vector/os-operating-system-software-computer-260nw-430441498.jpg"
-                     title="Operating Systems"
-                     description="Intro to Operating Systems: Basics of OS concepts, processes, memory, and file systems. Ideal for beginners."
-                  />
-               </div>
-            </CourseWindow>
-         </CarouselWindow>
-      </>
-   );
+   if (error){
+      console.log(error);
+      return(
+         <div>
+            <h1>Error!!</h1>
+         </div>
+      );
+   }
+   if (data) {
+      return (
+         <>
+            <CarouselWindow>
+               <CourseWindow title="My Courses">
+                  <div className="courseCardWindow">
+                     { data['result'].map((course) => <CourseCard key={course['course_id']} img={course['course_img']} title={course['course_name']} description={course['course_description']}/>) }
+                  </div>
+               </CourseWindow>
+            </CarouselWindow>
+         </>
+      );
+   }
+
 }
